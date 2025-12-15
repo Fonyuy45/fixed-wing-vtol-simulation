@@ -211,7 +211,6 @@ Target TX rate: 880 Hz
 - Code examples
 
 **Available upon request:**
-- Complete technical report (20 pages, academic quality)
 - Detailed build and deployment guide
 - Performance benchmarking methodology
 - Integration guides (PX4, ArduPilot)
