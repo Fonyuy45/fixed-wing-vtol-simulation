@@ -1,0 +1,6 @@
+# Force GitHub to count files in these directories as Python statistics
+scripts/*.py linguist-detectable=true
+launch/*.py linguist-detectable=true
+
+# Optional: If you want to force specific files to be counted as Python
+*.py linguist-language=Python
