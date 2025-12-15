@@ -1,0 +1,23 @@
+fuselage_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  propeller_rear_right_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: propeller_rear_right_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  propeller_rear_left_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: propeller_rear_left_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  propeller_front_right_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: propeller_front_right_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  propeller_front_left_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: propeller_front_left_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}

@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <model name="fixar_007">
+    
+    <plugin filename="ignition-gazebo-joint-state-publisher-system" 
+            name="ignition::gazebo::systems::JointStatePublisher"/>
+    <plugin filename="ignition-gazebo-pose-publisher-system" 
+            name="ignition::gazebo::systems::PosePublisher">
+      <publish_link_pose>true</publish_link_pose>
+      <update_frequency>400</update_frequency>
+    </plugin>
+    <plugin filename="ignition-gazebo-odometry-publisher-system" 
+            name="ignition::gazebo::systems::OdometryPublisher">
+      <odom_topic>/fixar_007/odometry</odom_topic>
+    </plugin>
+
+    <plugin filename="ignition-gazebo-imu-system" name="ignition::gazebo::systems::Imu"/>
+    <plugin filename="ignition-gazebo-navsat-system" name="ignition::gazebo::systems::NavSat"/>
+    <plugin filename="ignition-gazebo-altimeter-system" name="ignition::gazebo::systems::Altimeter"/>
+    <plugin filename="ignition-gazebo-magnetometer-system" name="ignition::gazebo::systems::Magnetometer"/>
+    <plugin filename="ignition-gazebo-air-pressure-system" name="ignition::gazebo::systems::AirPressure"/>
+    
+    <link name="base_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <!-- GENERIC PLACEHOLDER VALUES -->
+        <mass>7.0</mass>
+        <inertia>
+          <ixx>0.5</ixx> <ixy>0</ixy> <ixz>0</ixz>
+          <iyy>0.5</iyy> <iyz>0</iyz> <izz>1.0</izz>
+        </inertia>
+      </inertial>
+      
+      <!-- NOTE: Mesh files withheld (proprietary design) -->
+      <!-- Use placeholder geometry for demonstration -->
+      <visual name="base_link_visual">
+        <geometry>
+          <box><size>0.5 0.5 0.2</size></box>
+        </geometry>
+        <material><diffuse>0.2 0.2 0.2 1</diffuse></material>
+      </visual>
+      
+      <collision name="base_link_collision">
+        <geometry>
+          <box><size>0.5 0.5 0.2</size></box>
+        </geometry>
+      </collision>
+      
+      <!-- Sensor definitions -->
+      <sensor name="imu_sensor" type="imu">
+        <always_on>1</always_on>
+        <update_rate>400</update_rate>
+        <topic>/fixar_007/imu</topic>
+      </sensor>
+      
+      <sensor name="navsat_sensor" type="navsat">
+        <always_on>1</always_on>
+        <update_rate>50</update_rate>
+        <topic>/fixar_007/gps</topic>
+      </sensor>
+    </link>
+
+    <!-- MOTOR PLUGINS (Generic Configuration) -->
+    <!-- Detailed motor parameters withheld -->
+    <link name="propeller_0">
+      <pose relative_to="base_link">0.3 0.3 0.05 0 0 0</pose>
+      <inertial><mass>0.05</mass></inertial>
+      <visual name="prop_visual">
+        <geometry><cylinder><radius>0.1</radius><length>0.01</length></cylinder></geometry>
+      </visual>
+    </link>
+    <joint name="propeller_joint_0" type="revolute">
+      <parent>base_link</parent>
+      <child>propeller_0</child>
+      <axis><xyz>0 0 1</xyz></axis>
+    </joint>
+    
+    <!-- Additional motors 1-3 follow same pattern... -->
+    <!-- Full implementation available in private repository -->
+    
+  </model>
+</sdf>
