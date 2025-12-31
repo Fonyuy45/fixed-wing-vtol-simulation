@@ -223,7 +223,7 @@ Target TX rate: 880 Hz
 
 Professional workflow from CAD to simulation:
 ```
-Fusion 360 → fusion2urdf → URDF → SDF → Blender → Gazebo
+Fusion 360 → fusion2urdf → URDF → SDF → Gazebo
 ```
 
 **Key achievement:** Solved 35.5° motor tilt mesh clipping through Blender origin recentering.
@@ -264,7 +264,6 @@ This architecture demonstrates capability for:
 ## Collaboration
 
 **Complete implementation available for:**
-- Employment opportunities
 - Research collaborations
 - Technical consulting
 - Academic partnerships
